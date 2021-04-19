@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 def get_data():
     netflix_tmdb_data = pd.read_csv('dataset/netflix_tmdb_merge.csv.zip')
     netflix_tmdb_data['title'] = netflix_tmdb_data['title'].str.lower()
-    
+
     return netflix_tmdb_data
 
 # 'cast' 컬럼과 'genres' 컬럼을 'combine' 이라는 컬럼을 새로 생성하고 기존의 컬럼을 drop 시킴
@@ -62,8 +62,6 @@ def contents_recommendate(title, data, combine, transform):
     return recommendate_content
 
 def recommendate_result(content_name):
-    content_name = content_name.lower()
-    
     find_content = get_data()
     combine_result = combine_data(find_content)
     transform_result = transform_data(combine_result, find_content)
