@@ -64,10 +64,10 @@ function load_details(my_api_key, title) {
 
 function movie_recs(movie_title, movie_id, my_api_key) {
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: "/movie",
         data: {
-            name: movie_title
+            title: movie_title
         },
         success: function (recs) {
             if (recs == "This movie does not exist in the DataBase. Please check the spelling or try with some other movies") {
@@ -114,7 +114,7 @@ function get_movie_details(movie_id, my_api_key, arr, movie_title) {
 
 function show_details(movie_details, arr, movie_title, my_api_key) {
     var imdb_id = movie_details.imdb_id;
-    var poster = 'https://image.tmdb.org/t/p/original' + movie_details.poster_path;
+    var poster = 'https://image.tmdb.org/t/p/original/' + movie_details.poster_path;
     var overview = movie_details.overview;
     var genres = movie_details.genres;
     var rating = movie_details.vote_average;
@@ -183,7 +183,7 @@ function get_movie_posters(arr, my_api_key) {
             async: false,
             success: function (m_data) {
                 arr_poster_list.push(
-                    'https://image.tmdb.org/t/p/original' + m_data.results[0].poster_path
+                    'https://image.tmdb.org/t/p/original/' + m_data.results[0].poster_path
                 );
             },
             error: function () {

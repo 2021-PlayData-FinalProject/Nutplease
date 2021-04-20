@@ -1,10 +1,6 @@
 from flask_cors import CORS
 from flask import Flask, jsonify, request, render_template
-# from bs4 import BeautifulSoup
 
-# import numpy as np
-# import urllib.request
-import json
 import os
 import model
 
@@ -17,7 +13,7 @@ def convert_to_list(my_list):
 # 컨텐츠 제목 검색 시 유사한 제목을 반환함
 def get_suggestions():
         data = model.get_data()
-        return list(data['title'].str.capitalize())
+        return list(data['title'].str.capitalize())  # capitalize(): 첫 글자 대문자
 
 app = Flask(__name__)
 CORS(app)
@@ -27,7 +23,7 @@ def index():
         suggestions = get_suggestions()
         return render_template('index.html', suggestions=suggestions)
 
-@app.route('/movie', methods=['POST'])
+@app.route('/movie', methods=['GET'])
 def recommendate_movies():
         res = model.recommendate_result(request.args.get('title'))
         return jsonify(res)
@@ -52,10 +48,9 @@ def recommend():
     rec_movies = convert_to_list(rec_movies)
     rec_posters = convert_to_list(rec_posters)
     
-    
     movie_cards = {rec_posters[i]: rec_movies[i] for i in range(len(rec_posters))}
 
-    return render_template('recommend.html',title=title,poster=poster,overview=overview,vote_average=vote_average,
+    return render_template('recommend.html',title=title,imdb_id=imdb_id,poster=poster,overview=overview,vote_average=vote_average,
         vote_count=vote_count,release_date=release_date,runtime=runtime,status=status,genres=genres,
         movie_cards=movie_cards,suggestions=suggestions)
 

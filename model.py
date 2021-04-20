@@ -67,7 +67,7 @@ def recommendate_result(content_name):
     transform_result = transform_data(combine_result, find_content)
 
     if content_name not in find_content['title'].unique():
-        return 'This Content does not exist in the DataBase.'
+        return 'This movie does not exist in the DataBase. Please check the spelling or try with some other movies'
     else:
         recommendations = contents_recommendate(content_name, find_content, combine_result, transform_result)
         return recommendations.to_dict('records')

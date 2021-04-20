@@ -6,19 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nutplease - Movie Recommendation Sysytem</title>
-
-    <!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <title>Nutplease - Movie Recommendation System</title>
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://kit.fontawesome.com/6d2a0faf69.js" crossorigin="anonymous"></script>
-
+    
     <!-- <link rel="stylesheet" href="static/style.css"> -->
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
 </head>
 
 <body id="content">
@@ -43,8 +39,7 @@
                 <h6 id="overview" style="color:white;max-width: 85%">OVERVIEW:
                     <br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{overview}}
                 </h6>
-                <h6 id="vote_average" style="color:white;">RATING: &nbsp;{{vote_average}}/10 ({{vote_count}}
-                    votes)</h6>
+                <h6 id="vote_average" style="color:white;">RATING: &nbsp;{{vote_average}}/10 ({{vote_count}} votes)</h6>
                 <h6 id="genres" style="color:white;">GENRE: &nbsp;{{genres}}</h6>
                 <h6 id="date" style="color:white;">RELEASE DATE: &nbsp;{{release_date}}</h6>
                 <h6 id="runtime" style="color:white;">RUNTIME: &nbsp;{{runtime}}</h6>
@@ -53,6 +48,7 @@
         </div>
     </div>
     <br />
+
 
     <center>
         {% if reviews %}
@@ -96,7 +92,6 @@
     </center>
 
     {% if movie_cards | length > 1 %}
-
     <div class="movie" style="color: #E8E8E8;">
         <center>
             <h3>RECOMMENDED MOVIES FOR YOU</h3>
@@ -124,6 +119,7 @@
 
     {% endif %}
     </div>
+</div>
 
     <!-- https://github.com/TarekRaafat/autoComplete.js?files=1 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
