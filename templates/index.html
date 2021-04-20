@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/6d2a0faf69.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@9.0.3/dist/css/autoComplete.min.css">
-    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href= "/static/style.css">
 
     <script type="text/javascript">
         var films = {{suggestions|tojson}};
@@ -25,7 +25,7 @@
     <header class="showcase">
         <div class="showcase-top">
             <img src="https://i.ibb.co/r5krrdz/logo.png" alt="" />
-            <a href="#" class="btn btn-rounded">Sign In</a>
+            <a href="/" class="btn btn-rounded">Sign In</a>
         </div>
         <div class="showcase-content">
             <h1>See what's next</h1>
@@ -51,8 +51,8 @@
 
     <!-- https://github.com/TarekRaafat/autoComplete.js?files=1 -->
     <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="static/autocomplete.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="static/recommend.js"></script>
 </body>
 
