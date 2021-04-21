@@ -93,7 +93,7 @@ img {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	margin-top: 3rem;
+	margin-top: 9rem;
 }
 
 .showcase-content h1 {
@@ -134,11 +134,11 @@ img {
 	padding-top: 0.5rem;
 }
 
-.tabs .container > div {
+.tabs .container>div {
 	padding: 1.5rem 0;
 }
 
-.tabs .container > div:hover {
+.tabs .container>div:hover {
 	color: #fff;
 	cursor: pointer;
 }
@@ -334,7 +334,7 @@ img {
 
 @media (max-width: 960px) {
 
-	showcase {
+	.showcase {
 		height: 70vh;
 	}
 
@@ -350,6 +350,7 @@ img {
 
 	.showcase-content h1 {
 		font-size: 3.7rem;
+		line-height: 1;
 	}
 
 	.showcase-content p {
@@ -421,56 +422,57 @@ img {
 	}
 }
 
+
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-body{
-  
-  font-family: 'Open Sans', sans-serif;
+body {
+
+	font-family: 'Open Sans', sans-serif;
 }
 
 .search {
-  width: 100%;
-  position: relative;
-  display: flex;
+	width: 100%;
+	position: relative;
+	display: flex;
 }
 
 .searchTerm {
-  width: 200%;
-  border: 3px solid #c70505;
-  border-right: 3px;
-  padding: 5px;
-  height: 60px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.6);
-  font-size: large;
+	width: 200%;
+	border: 3px solid #c70505;
+	border-right: 3px;
+	padding: 5px;
+	height: 60px;
+	border-radius: 5px 0 0 5px;
+	outline: none;
+	color: #ffffff;
+	background: rgba(0, 0, 0, 0.6);
+	font-size: large;
 }
 
-.searchTerm:focus{
-  color: #ffffff;
-  font-size: large;
+.searchTerm:focus {
+	color: #ffffff;
+	font-size: large;
 }
 
 .searchButton {
-  width: 100px;
-  height: 60px;
-  border: 1px solid #c70505;
-  background: #c70505;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
+	width: 100px;
+	height: 60px;
+	border: 1px solid #c70505;
+	background: #c70505;
+	text-align: center;
+	color: #fff;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	font-size: 20px;
 }
 
 /*Resize the wrap to see the search bar change!*/
-.wrap{
-  width: 60%;
-  position: relative;
-  top: 100%;
-  left: 41%;
-  transform: translate(-50%, 50%);
+.wrap {
+	position: absolute;
+	top: 120%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 /* 내용 추가 */
@@ -484,14 +486,14 @@ body{
 .movie-content {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content:space-around;
+	justify-content: space-around;
 }
 
-.movie-content > div {
-    margin:20px;
+.movie-content>div {
+	margin: 20px;
 }
 
-.btn-block{
+.btn-block {
 	width: 15%;
 	text-align: center;
 	margin-left: auto;
@@ -500,54 +502,55 @@ body{
 }
 
 #content {
-	background-color: #181818;
+	background-color: #000000;
 	font-family: 'Noto Sans JP', sans-serif;
 }
 
 #details {
-	margin-left: 50px;
+	margin-left: auto;
 }
 
 .footer {
 	color: #e4e0e0;
-	text-align:right;
+	text-align: right;
 	position: fixed;
- 	bottom: 20px;
- 	right: 20px;
- 	width: 100%;
+	bottom: 20px;
+	right: 20px;
+	width: 100%;
 }
 
 h1 {
-    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #e50914;
-    font-weight: bold;
-    margin-top: 30px;
-    text-shadow: #000000 0px 0px 13px;
- }
+	font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	/* color: #e50914; */
+	font-weight: bold;
+	margin-top: 30px;
+	text-shadow: #000000 0px 0px 13px;
+}
 
 .github-corner:hover .octo-arm {
-  	animation: octocat-wave 560ms ease-in-out;
+	animation: octocat-wave 560ms ease-in-out;
 }
 
 @keyframes octocat-wave {
-  0%,
-  100% {
-    transform: rotate(0)
-  }
 
-  20%,
-  60% {
-    transform: rotate(-25deg)
-  }
+	0%,
+	100% {
+		transform: rotate(0)
+	}
 
-  40%,
-  80% {
-    transform: rotate(10deg)
-  }
+	20%,
+	60% {
+		transform: rotate(-25deg)
+	}
+
+	40%,
+	80% {
+		transform: rotate(10deg)
+	}
 }
 
 #autoComplete {
-  background-position: 98% ;
+	background-position: 98%;
 }
 
 #name {
@@ -556,24 +559,26 @@ h1 {
 }
 
 h6 {
-    margin-bottom: 20px;  
+	margin-bottom: 20px;
 }
 
-@media only screen and (max-width: 650px) {
-    #mcontent {
-      display: block;
-    }
-    .poster-lg {
-      display: none;
-    }
-    #details {
-		margin-left: 30px;
+@media only screen and (max-width: 450px) {
+	#mcontent {
+		display: block;
+	}
+
+	.poster-lg {
+		display: none;
+	}
+
+	#details {
+		margin-left: auto;
 	}
 
 	#autoComplete {
-	  background-position: 97% ;
+		background-position: 97%;
 	}
-	
+
 	svg[data-toggle=tooltip] {
 		width: 50px;
 		height: 50px;
@@ -581,9 +586,10 @@ h6 {
 }
 
 @media only screen and (max-width: 991px) {
-	.modal-body{
+	.modal-body {
 		display: block;
 	}
+
 	.profile-pic {
 		margin-left: auto;
 		margin-right: auto;
@@ -591,6 +597,7 @@ h6 {
 		margin-bottom: 20px;
 	}
 }
+
 @media only screen and (min-width: 992px) {
 	.modal-body {
 		display: flex;
@@ -598,9 +605,9 @@ h6 {
 }
 
 @media only screen and (min-width: 651px) {
-  .poster-sm {
-    display: none;
-   }
+	.poster-sm {
+		display: none;
+	}
 
 	#mcontent {
 		display: flex;
@@ -608,33 +615,14 @@ h6 {
 	}
 }
 
-.poster{
-    -webkit-box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
-    -moz-box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
-    box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
+.poster {
+	-webkit-box-shadow: 0px 1px 15px 4px rgba(250, 250, 250, 1);
+	-moz-box-shadow: 0px 1px 15px 4px rgba(250, 250, 250, 1);
+	box-shadow: 0px 1px 15px 4px rgba(250, 250, 250, 1);
 }
 
 .card:hover {
 	cursor: pointer;
-}
-
-.castcard:hover {
-    cursor: pointer;
-}
-
-.cast-img {
-	filter: brightness(100%);
-	-moz-transition: all 0.75s ease;
-    -webkit-transition: all 0.75s ease;
-	transition: all 0.75s ease;
-}
-
-
-.cast-img:hover {
-	filter: brightness(50%);
-	-moz-transition: all 0.75s ease;
-    -webkit-transition: all 0.75s ease;
-    transition: all 0.75s ease;
 }
 
 .fig {
@@ -649,16 +637,16 @@ h6 {
 	left: 0px;
 	opacity: 0;
 	-moz-transition: all 0.75s ease;
-    -webkit-transition: all 0.75s ease;
-    transition: all 0.75s ease;
+	-webkit-transition: all 0.75s ease;
+	transition: all 0.75s ease;
 }
 
 .fig:hover {
 	opacity: 1;
-	backdrop-filter:br;
+	backdrop-filter: br;
 	-moz-transition: all 0.75s ease;
-    -webkit-transition: all 0.75s ease;
-    transition: all 0.75s ease;
+	-webkit-transition: all 0.75s ease;
+	transition: all 0.75s ease;
 }
 
 .card-btn {
@@ -670,12 +658,7 @@ h6 {
 }
 
 .table td {
-    border-color: white;
-    border-style:solid; 
-    border-width:1px;
-}
-
-.fail {
-	display: none;
-	color: white;
+	border-color: white;
+	border-style: solid;
+	border-width: 1px;
 }

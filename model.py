@@ -14,7 +14,7 @@ def get_data():
 
 # 'cast' 컬럼과 'genres' 컬럼을 'combine' 이라는 컬럼을 새로 생성하고 기존의 컬럼을 drop 시킴
 def combine_data(data):
-    comb_data = data.drop(columns=['type', 'title', 'date_added', 'rating', 'duration', 'movie_id', 'overview'])
+    comb_data = data.drop(columns=['type', 'title', 'date_added', 'rating', 'duration', 'id', 'overview'])
     comb_data['combine'] = comb_data[comb_data.columns[0:2]].apply(lambda x: ','.join(x.dropna().astype(str)), axis=1)
     comb_data = comb_data.drop(columns=['cast', 'genres'])
        
@@ -50,27 +50,23 @@ def contents_recommendate(title, data, combine, transform):
 
     content_indices = [i[0] for i in similarity_scores]
 
-    # content_id = data['movie_id'].iloc[content_indices]
     content_title = data['title'].iloc[content_indices]
-    # content_genres = data['genres'].iloc[content_indices]
 
-    # recommendate_content = pd.DataFrame(columns=['movie_id', 'title', 'genres'])
     recommendate_content = pd.DataFrame(columns=['title'])
 
-    # recommendate_content['movie_id'] = content_id
     recommendate_content['title'] = content_title
-    # recommendate_content['genres'] = content_genres
 
     return recommendate_content
 
 def recommendate_result(content_name):
     content_name = content_name.lower()
+
     find_content = get_data()
     combine_result = combine_data(find_content)
     transform_result = transform_data(combine_result, find_content)
 
     if content_name not in find_content['title'].unique():
-        return 'This Content does not exist in the DataBase.'
+        return 'This movie does not exist in the DataBase.'
     else:
         recommendations = contents_recommendate(content_name, find_content, combine_result, transform_result)
        

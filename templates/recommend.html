@@ -8,28 +8,14 @@
 
     <title>Nutplease - Movie Recommendation Sysytem</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/6d2a0faf69.js" crossorigin="anonymous"></script>
-
-    <!-- Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
-<body id="content">
-    <div class="results">
-        <center>
-            <h2 id="name" class="text-uppercase">{{title}}</h2>
-        </center>
-    </div>
-
+<body>
     <div id="mycontent">
         <div id="mcontent">
             <div class="poster-lg">
@@ -75,7 +61,6 @@
     {% endif %}
 
     <!-- https://github.com/TarekRaafat/autoComplete.js?files=1 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/static/recommend.js"></script>
 </body>
 
