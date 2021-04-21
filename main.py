@@ -1,8 +1,13 @@
-from flask_cors import CORS
+# from flask_cors import CORS
 from flask import Flask, jsonify, request, render_template
 
 import os
 import model
+
+# 컨텐츠 제목 검색 시 유사한 제목을 반환함
+def get_suggestions():
+        data = model.get_data()
+        return list(data['title'].str.capitalize())
 
 def convert_to_list(my_list):
     my_list = my_list.split('","')
@@ -10,21 +15,16 @@ def convert_to_list(my_list):
     my_list[-1] = my_list[-1].replace('"]','')
     return my_list
 
-# 컨텐츠 제목 검색 시 유사한 제목을 반환함
-def get_suggestions():
-        data = model.get_data()
-        return list(data['title'].str.capitalize())  # capitalize(): 첫 글자 대문자
-
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 @app.route('/')
 def index():
         suggestions = get_suggestions()
         return render_template('index.html', suggestions=suggestions)
 
-@app.route('/movie', methods=['GET'])
-def recommendate_movies():
+@app.route('/movie', methods=["GET"])
+def similarity_movies():
         res = model.recommendate_result(request.args.get('title'))
         return jsonify(res)
 
@@ -56,4 +56,4 @@ def recommend():
 
 if __name__ == '__main__':
         port = int(os.environ.get("PORT", 5000))
-        app.run(host="0.0.0.0", port=port, debug=True)
+        app.run(host="127.0.0.1", port=port, debug=True)

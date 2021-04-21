@@ -1,8 +1,9 @@
 import pandas as pd
+import numpy as np
 import scipy.sparse as spa
 
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 # 데이터셋 로드 후 'title' 컬럼값을 소문자로 변경함
 def get_data():
@@ -49,25 +50,28 @@ def contents_recommendate(title, data, combine, transform):
 
     content_indices = [i[0] for i in similarity_scores]
 
-    content_id = data['movie_id'].iloc[content_indices]
+    # content_id = data['movie_id'].iloc[content_indices]
     content_title = data['title'].iloc[content_indices]
-    content_genres = data['genres'].iloc[content_indices]
+    # content_genres = data['genres'].iloc[content_indices]
 
-    recommendate_content = pd.DataFrame(columns=['Content_Id', 'Content_Name', 'Genres'])
+    # recommendate_content = pd.DataFrame(columns=['movie_id', 'title', 'genres'])
+    recommendate_content = pd.DataFrame(columns=['title'])
 
-    recommendate_content['Content_Id'] = content_id
-    recommendate_content['Content_Name'] = content_title
-    recommendate_content['Genres'] = content_genres
+    # recommendate_content['movie_id'] = content_id
+    recommendate_content['title'] = content_title
+    # recommendate_content['genres'] = content_genres
 
     return recommendate_content
 
 def recommendate_result(content_name):
+    content_name = content_name.lower()
     find_content = get_data()
     combine_result = combine_data(find_content)
     transform_result = transform_data(combine_result, find_content)
 
     if content_name not in find_content['title'].unique():
-        return 'This movie does not exist in the DataBase. Please check the spelling or try with some other movies'
+        return 'This Content does not exist in the DataBase.'
     else:
         recommendations = contents_recommendate(content_name, find_content, combine_result, transform_result)
-        return recommendations.to_dict('records')
+       
+        return recommendations['title'].tolist()

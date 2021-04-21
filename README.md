@@ -4,7 +4,6 @@
 ![PaaS](https://img.shields.io/badge/PaaS-Heroku-blueviolet)
 ![Framework](https://img.shields.io/badge/Framework-Flask-black)
 ![Frontend](https://img.shields.io/badge/Frontend-HTML/CSS/JS-green)
-![API](https://img.shields.io/badge/API-TMDB-blue)
 
 ## 🧭Outline / 개요
 
@@ -22,13 +21,9 @@
 
 * 넷플릭스 데이터 분석 후, 설명과 해석 작성
 
-* 가공된 모델을 기반으로 사용자 컨텐츠 추천 시스템 구현
+* 베이스라인(Baseline) 모델 생성 후, 추천 알고리즘 구현
 
-## 🕵🏻‍♀️Notion으로 정리해 보는 데이터 분석
-
-아래의 주소에 노션(Notion) 주소를 추가하였습니다. 데이터 분석에 많은 도움이 되었으면 합니다.
-
-<u>https://www.notion.so/36fb960cdf2e4361aac50e32d8cc3293</u>
+---
 
 ## 🔌Getting Started / Flask 애플리케이션 및 Docker의 간단한 사용법
 
@@ -75,7 +70,7 @@ $ py38\Scripts\activate
 먼저 `pip`를 이용해 Flask를 설치합니다. 
 
 ```
-$ pip install Flask
+$ pip install Flask==1.1.2
 ```
 
 그리고 모든 종속성(Dependencies)을 보관할 **_requirements.txt_** 파일을 생성하기 위해 `pip freeze > requirements.txt` 명령어를 명령 프롬프트에 입력하면 해당 파일이 프로젝트 폴더 내에 자동으로 생성됩니다.
@@ -178,7 +173,6 @@ $ docker run -d -p 5000:5000 nutplease-flask-heroku
 ![localhost 실행 예시](https://user-images.githubusercontent.com/17983434/114894350-87053a00-9e49-11eb-83d2-05f8dc864bfe.JPG)
 
 ## 🎉Deployment / 배포하자 배포!
-
 로컬 환경에서 정상적으로 실행이 되었다면, 이제 Heroku에 배포하는 일만 남았습니다.
 
 먼저 Heroku 컨테이너에 로그인해야 합니다. 다음의 명령어를 명령 프롬프트에 입력하면 새로운 브라우저 창이 열리게 되고 로그인에 성공하면 창을 닫도록 합니다.
@@ -203,7 +197,7 @@ $ heroku container:push web --app nutplease
 
 성공적으로 푸시되었다면 마지막으로 배포하는 일만 남았습니다.
 
-```exi
+```
 $ heroku container:release web --app nutplease
 ```
 
@@ -253,9 +247,9 @@ Heroku와 AWS 그리고 GCP 모두 무료로(다소 제한적이지만) 사용 �
 
 아직 최종 프로젝트가 종료된 것은 아니지만(작성 일자 기준으로 4일 남음), 정신 없는 시간동안 수고해 주신 팀원 분들, 그리고 플레이데이터 관게자 여러분 모두에게 진심으로 감사의 인사를 전합니다.
 
-## 👨‍👨‍👧Built With / 프로젝트에 참여한 팀원들
-* 👦🏻 [이민재](https://github.com/Dowonna) - PM 
-* 👩🏻 [고은비](https://github.com/stellago37)
-* 👧🏻 [장문희](https://github.com/JANGMOONHEE)
-* 🧒🏻 [조윤혜]()
-* 👩🏻‍🦱  [최지원]()
+## 👥Built With / 프로젝트에 참여한 팀원들
+* [이민재](https://github.com/Dowonna) - PM 
+* [고은비](https://github.com/stellago37)
+* [장문희](https://github.com/JANGMOONHEE)
+* [조윤혜]()
+* [최지원]()
