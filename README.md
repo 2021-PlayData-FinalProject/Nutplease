@@ -1,5 +1,7 @@
 # 🎓Nutplease
 
+![Nutplease Logo](static/logo.png)
+
 ![Python](https://img.shields.io/badge/Python-3.8-blue)
 ![PaaS](https://img.shields.io/badge/PaaS-Heroku-blueviolet)
 ![Framework](https://img.shields.io/badge/Framework-Flask-black)
@@ -26,7 +28,7 @@
 
 ### 데이터 분석을 시작해 보자!!
 
-데이터 분석을 시작하기 위한 교육용(?) 자료를 Notion에 업로드하였습니다. 많은 도움이 되었으면 하는 바람입니다. 😁
+데이터 분석을 시작하기 위한 교육용 자료를 Notion에 업로드하였습니다. 많은 도움이 되었으면 하는 바람입니다. 😁
 
 * <u>https://www.notion.so/36fb960cdf2e4361aac50e32d8cc3293</u>
 
