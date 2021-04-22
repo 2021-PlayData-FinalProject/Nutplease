@@ -4,6 +4,7 @@
 ![PaaS](https://img.shields.io/badge/PaaS-Heroku-blueviolet)
 ![Framework](https://img.shields.io/badge/Framework-Flask-black)
 ![Frontend](https://img.shields.io/badge/Frontend-HTML/CSS/JS-green)
+![API](https://img.shields.io/badge/API-TMDb-brightgreen)
 
 ## 🧭Outline / 개요
 
@@ -32,6 +33,64 @@
 ### 아키텍처
 
 ![Nutplease-Architecture](https://user-images.githubusercontent.com/17983434/115665315-19439b80-a37e-11eb-83e7-343f7d5b368c.png)
+
+### 유사도 점수(Similarity Score)?
+
+컨텐츠 기반 필터링은 사용자(Client)가 이전에 관심을 보인(상품을 예시로 하면, 구매한 경우) 아이템에서 **유사한 아이템을 추천하는 방법** 입니다. 핵심은 컨텐츠(아이템)들을 벡터 형태로 표현한다고 생각하면 됩니다. 이것은 도메인에 따라서 차이가 다소 있습니다.
+
+텍스트와 같은 자연어는 TF-IDF 등과 같은 기법을 사용하며, 이미지의 경우에는 CNN과 같은 모델을 사용합니다. 경우에 따라서는 CNN 모델과 자연어 처리 모델이 같이 사용되기도 합니다.
+
+![컨텐츠 기반 필터링](https://drive.google.com/uc?export=view&id=1J-xQtTszN4KlGQBI-G4l_5dWZSl0oeii)
+> 초코 김현우 | TEAM EDA Blog ---  컨텐츠 기반의 추천시스템 - 유사도함수 및 평가함수
+
+컨텐츠를 벡터로 바꾸는 방법을 알기 전에 벡터들간의 유사도를 계산하는 방법에 대해 알아보도록 하겠습니다.
+
+#### 유사도 함수
+
+자신과 가장 비슷한 컨텐츠(아이템)를 찾아줄 때 사용됩니다. 대표적으로 사용되는 유사도 함수인 자카드 유사도를 살펴보도록 하겠습니다.
+
+* #### 자카드 유사도
+
+: **<u>키워드를 통해 두 집합이 얼마나 비슷한지를 측정하는 방식</u>**
+
+![Jaccard index](https://wikimedia.org/api/rest_v1/media/math/render/svg/eaef5aa86949f49e7dc6b9c8c3dd8b233332c9e7)
+
+        * 분자: 두 집합의 교집합을 뽑음
+
+        * 분모
+                * 두 집합의 합집합을 뽑음
+                * 집합의 사이즈가 크면 클수록 패널티가 적용됨
+
+        * 예시
+                * 영화 "토탈 리콜(액션, SF, 모험, 스릴러)"
+                * 영화 "터미네이터 3: 라이즈 오브 더 머신(액션, 스릴러, SF)"
+                * 교집합 / 합집합 = 3/4(75% 일치)
+
+: **<u>장르와 키워드 등이 명시적으로 주어지지 않은 경우</u>**
+
+        * 줄거리(overview) 등에서 키워드를 추출함
+        * 자주 등장하는 키워드를 추출하기 위해서 'TF-IDF' 알고리즘이 적용됨
+
+: **TF(Term-Frequency)**
+
+![TF](https://wikimedia.org/api/rest_v1/media/math/render/svg/9116cd515075990e05a5489020384c714408d63f)
+
+* <u>어떤 단어가 한 개의 문서(Document)에서 얼마나 등장하는지</u>
+* 한 개의 문서에서 해당 단어가 등장하는 횟수 / 한 개의 문서에서 가장 많이 등장하는 단어의 갯수
+
+: **IDF(Inverse Document Frequency)**
+
+![IDF](https://wikimedia.org/api/rest_v1/media/math/render/svg/cc5cc57e5b68902a0bfaf42f04e53458503601c4)
+
+* <u>역수를 사용하면 단어가 등장한 문서의 갯수가 작아질수록 값이 커짐</u>
+
+: **TF-IDF(Term Frequency - Inverse Document Frequency)**
+
+![TF-IDF](https://wikimedia.org/api/rest_v1/media/math/render/svg/d1893056bff41c7829cf3023a5febda10f43e555)
+
+* <u>각 줄거리마다 TF-IDF 점수가 가장 높은 몇 개를 키워드로 뽑은 후 자카드 유사도를 계산함</u>
+
+---
 
 ## 🔌Getting Started / Flask 애플리케이션 및 Docker의 간단한 사용법
 
@@ -213,6 +272,8 @@ $ heroku container:release web --app nutplease
 
 <u>https://nutplease.herokuapp.com</u>에 접속하면 앞서 로컬 환경에서 봤던 결과물이 출력될 것입니다.
 
+---
+
 ## 💡Acknowledgments / 맺으며
 
 ### 시연 예시
@@ -255,9 +316,9 @@ Heroku와 AWS 그리고 GCP 모두 무료로(다소 제한적이지만) 사용 �
 
 아직 최종 프로젝트가 종료된 것은 아니지만(작성 일자 기준으로 4일 남음), 정신 없는 시간동안 수고해 주신 팀원 분들, 그리고 플레이데이터 관게자 여러분 모두에게 진심으로 감사의 인사를 전합니다.
 
-## 👥Built With / 프로젝트에 참여한 팀원들
-* [이민재](https://github.com/Dowonna) - PM 
-* [고은비](https://github.com/stellago37)
-* [장문희](https://github.com/JANGMOONHEE)
-* [조윤혜]()
-* [최지원]()
+## 👨‍👩‍👧‍👦Built With / 프로젝트에 참여한 팀원들
+* 🧑🏻[이민재](https://github.com/Dowonna) - PM 
+* 👩🏻[고은비](https://github.com/stellago37)
+* 👧🏻[장문희](https://github.com/JANGMOONHEE)
+* 🧒🏻[조윤혜]()
+* 👩🏻‍🦱[최지원]()
