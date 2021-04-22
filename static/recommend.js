@@ -94,7 +94,7 @@ function movie_recs(movie_title, movie_id, my_api_key) {
 function get_movie_details(movie_id, my_api_key, arr, movie_title) {
     $.ajax({
         type: 'GET',
-        url: 'https://api.themoviedb.org/3/movie/' + movie_id + '?api_key=' + my_api_key,
+        url: 'https://api.themoviedb.org/3/movie/' + movie_id + '?api_key=' + my_api_key + '&language=ko-KR',
         success: function (movie_details) {
             show_details(movie_details, arr, movie_title, my_api_key, movie_id);
         },
@@ -174,7 +174,7 @@ function get_movie_posters(arr, my_api_key) {
     for (var m in arr) {
         $.ajax({
             type: 'GET',
-            url: 'https://api.themoviedb.org/3/search/movie?api_key=' + my_api_key + '&query=' + arr[m],
+            url: 'https://api.themoviedb.org/3/search/movie?api_key=' + my_api_key + '&language=ko-KR' + '&query=' + arr[m],
             async: false,
             success: function (m_data) {
                 arr_poster_list.push(

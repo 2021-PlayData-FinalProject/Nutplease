@@ -1,13 +1,13 @@
-# from flask_cors import CORS
+from flask_cors import CORS
 from flask import Flask, jsonify, request, render_template
 
 import os
 import model
 
-# 컨텐츠 제목 검색 시 유사한 제목을 반환함
+# 영화 검색 시 유사한 영화 제안
 def get_suggestions():
         data = model.get_data()
-        return list(data['title'].str.capitalize())
+        return list(data['title'].str.upper())
 
 def convert_to_list(my_list):
     my_list = my_list.split('","')
@@ -16,7 +16,7 @@ def convert_to_list(my_list):
     return my_list
 
 app = Flask(__name__)
-# CORS(app)
+CORS(app)
 
 @app.route('/')
 def index():

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
+    <title>Nutplease - Movie Recommendation Sysytem</title>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Nutplease - Movie Recommendation Sysytem</title>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/6d2a0faf69.js" crossorigin="anonymous"></script>
@@ -19,48 +19,52 @@
     <div id="mycontent">
         <div id="mcontent">
             <div class="poster-lg">
-                <img class="poster" style="border-radius: 40px;margin-left: 90px;" height="400" width="250" src={{poster}}>
+                <img class="poster" style="border-radius: 40px;margin-left: 120px;margin-top: 100px;" height="360" width="240" src={{poster}}>
             </div>
             <div class="poster-sm text-center">
-                <img class="poster" style="border-radius: 40px;margin-bottom: 5%;" height="400" width="250" src={{poster}}>
+                <img class="poster" style="border-radius: 40px;margin-left: 120px;margin-top: 100px;" height="360" width="240" src={{poster}}>
             </div>
-            <div id="details">
+            <div id="details" style="margin-left: 240px;margin-top: 100px;">
+                <h3 id="title" style="color:white;">제목: &nbsp;{{title}}</h3>
                 <br />
-                <h6 id="title" style="color:white;">TITLE: &nbsp;{{title}}</h6>
-                <h6 id="overview" style="color:white;max-width: 85%">OVERVIEW: &nbsp;{{overview}}</h6>
-                <h6 id="vote_average" style="color:white;">RATING: &nbsp;{{vote_average}}/10 ({{vote_count}} votes)</h6>
-                <h6 id="genres" style="color:white;">GENRE: &nbsp;{{genres}}</h6>
-                <h6 id="date" style="color:white;">RELEASE DATE: &nbsp;{{release_date}}</h6>
-                <h6 id="runtime" style="color:white;">RUNTIME: &nbsp;{{runtime}}</h6>
-                <h6 id="status" style="color:white;">STATUS: &nbsp;{{status}}</h6>
+                <h3 id="overview" style="color:white;max-width: 85%">개요: <br />{{overview}}</h3>
+                <br />
+                <h3 id="vote_average" style="color:white;">회원 점수: &nbsp;{{vote_average}}/10 ({{vote_count}} votes)</h3>
+                <br />
+                <h3 id="genres" style="color:white;">장르: &nbsp;{{genres}}</h3>
+                <br />
+                <h3 id="date" style="color:white;">상영 일자: &nbsp;{{release_date}}</h3>
+                <br />
+                <h3 id="runtime" style="color:white;">상영 시간: &nbsp;{{runtime}}</h3>
+                <br />
+                <h3 id="status" style="color:white;">상영 유무: &nbsp;{{status}}</h3>
             </div>
         </div>
     </div>
 
     {% if movie_cards | length > 1 %}
-    <div class="movie" style="color: #E8E8E8;">
+    <div class="movie" style="color: #E8E8E8; margin-top: 100px;" >
         <center>
-            <h3>RECOMMENDED MOVIES FOR YOU</h3>
-            <h5>(Click any of the movies to get recommendation)</h5>
+            <h2>당신에게 이 영화를 추천해 드려요!</h2>
+            <h3>(클릭하면 해당 영화와 유사한 영화도 추천해 드려요)</h3>
         </center>
     </div>
 
     <div class="movie-content">
-        {% for poster, title in movie_cards.items()if not movie_cards.hidden %}
+        {% for poster, title in movie_cards.items() if not movie_cards.hidden %}
         <div class="card" style="width: 15rem;" title="{{title}}" onclick="recommendcard(this)">
             <div class="imghvr">
                 <img class="card-img-top" height="360" width="240" alt="{{title}} - poster" src={{poster}}>
-                <figcaption class="fig"></figcaption>
+                <figcaption class="fig" />
             </div>
             <div class="card-body">
-                <h5 class="card-title">{{title|capitalize}}</h5>
+                <h3 class="card-title">{{title|capitalize}}</h3>
             </div>
         </div>
         {% endfor %}
     </div>
     {% endif %}
 
-    <!-- https://github.com/TarekRaafat/autoComplete.js?files=1 -->
     <script type="text/javascript" src="/static/recommend.js"></script>
 </body>
 

@@ -23,7 +23,15 @@
 
 * 베이스라인(Baseline) 모델 생성 후, 추천 알고리즘 구현
 
----
+### 데이터 분석을 시작해 보자!!
+
+데이터 분석을 시작하기 위한 교육용(?) 자료를 Notion에 업로드하였습니다. 많은 도움이 되었으면 하는 바람입니다. 😁
+
+* <u>https://www.notion.so/36fb960cdf2e4361aac50e32d8cc3293</u>
+
+### 아키텍처
+
+![Nutplease-Architecture](https://user-images.githubusercontent.com/17983434/115665315-19439b80-a37e-11eb-83e7-343f7d5b368c.png)
 
 ## 🔌Getting Started / Flask 애플리케이션 및 Docker의 간단한 사용법
 
@@ -209,13 +217,13 @@ $ heroku container:release web --app nutplease
 
 ### 시연 예시
 
-1. Docker 컨테이너가 실행 중일 때 <u>https://nutplease.herokuapp.com</u> 사이트에 접속하는 모습
+1. 검색창에 영화 '인셉션(Inception)'를 검색한 후 유사한 영화를 예측하는 모습
 
-![nutplease_example1](https://user-images.githubusercontent.com/17983434/114926150-f8091980-9e6a-11eb-9072-5bcc9937b0ae.gif)
+![Nutplease_Example1](https://user-images.githubusercontent.com/17983434/115650018-6bc38e80-a363-11eb-8965-a0f2e1c4af3a.gif)
 
-2. 검색창에 영화 '인셉션(Inception)'를 검색한 후 유사한 영화를 예측하는 모습
+2. 검색된 영화를 기반으로 추천된 다른 영화 포스터를 클릭 시 해당 영화의 유사한 영화를 예측하는 모습
 
-![nutplease_example2](https://user-images.githubusercontent.com/17983434/114926887-d65c6200-9e6b-11eb-91c4-dc1af63d40e4.gif)
+![Nutplease_Example2](https://user-images.githubusercontent.com/17983434/115650657-9cf08e80-a364-11eb-9fd4-070bf9033000.gif)
 
 ### 느낀 점
 
