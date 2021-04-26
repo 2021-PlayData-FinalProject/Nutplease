@@ -3,3 +3,4 @@ __pycache__
 .vscode
 # Python 가상환경 폴더 제외
 py38
+get-pip.py

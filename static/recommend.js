@@ -108,7 +108,6 @@ function get_movie_details(movie_id, my_api_key, arr, movie_title) {
 }
 
 function show_details(movie_details, arr, movie_title, my_api_key) {
-    var imdb_id = movie_details.imdb_id;
     var poster = 'https://image.tmdb.org/t/p/w500/' + movie_details.poster_path;
     var overview = movie_details.overview;
     var genres = movie_details.genres;
@@ -134,7 +133,6 @@ function show_details(movie_details, arr, movie_title, my_api_key) {
 
     details = {
         'title': movie_title,
-        'imdb_id': imdb_id,
         'poster': poster,
         'genres': my_genre,
         'overview': overview,

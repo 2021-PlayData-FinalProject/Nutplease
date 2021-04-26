@@ -11,8 +11,8 @@ def get_suggestions():
 
 def convert_to_list(my_list):
     my_list = my_list.split('","')
-    my_list[0] = my_list[0].replace('["','')
-    my_list[-1] = my_list[-1].replace('"]','')
+    my_list[0] = my_list[0].replace('["','')  # 처음
+    my_list[-1] = my_list[-1].replace('"]','')  # 마지막
     return my_list
 
 app = Flask(__name__)
@@ -31,7 +31,6 @@ def similarity_movies():
 @app.route("/recommend",methods=["POST"])
 def recommend():
     title = request.form['title']
-    imdb_id = request.form['imdb_id']
     poster = request.form['poster']
     genres = request.form['genres']
     overview = request.form['overview']
@@ -50,7 +49,7 @@ def recommend():
     
     movie_cards = {rec_posters[i]: rec_movies[i] for i in range(len(rec_posters))}
 
-    return render_template('recommend.html',title=title,imdb_id=imdb_id,poster=poster,overview=overview,vote_average=vote_average,
+    return render_template('recommend.html',title=title,poster=poster,overview=overview,vote_average=vote_average,
         vote_count=vote_count,release_date=release_date,runtime=runtime,status=status,genres=genres,
         movie_cards=movie_cards,suggestions=suggestions)
 

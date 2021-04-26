@@ -4,7 +4,7 @@ import scipy.sparse as spa
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
-# 데이터셋 로드 후 'title' 컬럼값을 소문자로 변경함
+# 데이터셋 로드 후 'title' 컬럼값을 소문자로 변경 후 리턴함
 def get_data():
     netflix_tmdb_data = pd.read_csv('dataset/netflix_tmdb_merge.csv.zip')
     netflix_tmdb_data['title'] = netflix_tmdb_data['title'].str.lower()
@@ -59,7 +59,7 @@ def recommendate_result(content_name):
     transform_result = transform_data(combine_result, find_content)
 
     if content_name not in find_content['title'].unique():
-        return 'This movie does not exist in the DataBase.'
+        return "This Content does not exist in the DataBase"
     else:
         recommendations = contents_recommendate(content_name, find_content, combine_result, transform_result)
         return recommendations['title'].tolist()
